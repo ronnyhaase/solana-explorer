@@ -4,9 +4,6 @@ const SUPPLY_ALIASES = ['accounts', 'accounts/top'];
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
   images: {
     remotePatterns: [
       {
@@ -53,6 +50,5 @@ const nextConfig = {
     return config;
   },
 };
-
 
 export default nextConfig;
