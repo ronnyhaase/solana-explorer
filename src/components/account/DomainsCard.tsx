@@ -6,7 +6,7 @@ import { LoadingCard } from '@components/common/LoadingCard';
 import { useUserDomains } from '@utils/name-service';
 import React from 'react';
 
-import { DomainInfo } from '@/app/utils/domain-info';
+import { DomainInfo } from '@utils/domain-info';
 
 export function DomainsCard({ address }: { address: string }) {
     const [domains, domainsLoading] = useUserDomains(address);

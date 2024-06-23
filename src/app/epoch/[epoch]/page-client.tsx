@@ -12,7 +12,7 @@ import { ClusterStatus } from '@utils/cluster';
 import { displayTimestampUtc } from '@utils/date';
 import React from 'react';
 
-import { getFirstSlotInEpoch, getLastSlotInEpoch } from '@/app/utils/epoch-schedule';
+import { getFirstSlotInEpoch, getLastSlotInEpoch } from '@utils/epoch-schedule';
 
 type Props = {
     params: {

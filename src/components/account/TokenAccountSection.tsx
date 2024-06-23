@@ -42,7 +42,7 @@ import { ExternalLink, RefreshCw } from 'react-feather';
 import { create } from 'superstruct';
 import useSWR from 'swr';
 
-import { FullLegacyTokenInfo, getTokenInfo, getTokenInfoSwrKey } from '@/app/utils/token-info';
+import { FullLegacyTokenInfo, getTokenInfo, getTokenInfoSwrKey } from '@utils/token-info';
 
 import { UnknownAccountCard } from './UnknownAccountCard';
 
@@ -198,8 +198,8 @@ function FungibleTokenMintAccountCard({
                         {tokenInfo
                             ? 'Overview'
                             : account.owner.toBase58() === TOKEN_2022_PROGRAM_ID.toBase58()
-                            ? 'Token-2022 Mint'
-                            : 'Token Mint'}
+                              ? 'Token-2022 Mint'
+                              : 'Token Mint'}
                     </h3>
                     <button className="btn btn-white btn-sm" onClick={refresh}>
                         <RefreshCw className="align-text-top me-2" size={13} />
@@ -283,7 +283,7 @@ function FungibleTokenMintAccountCard({
                         </tr>
                     )}
                     {mintExtensions?.map(extension =>
-                        TokenExtensionRows(extension, epoch, mintInfo.decimals, tokenInfo?.symbol)
+                        TokenExtensionRows(extension, epoch, mintInfo.decimals, tokenInfo?.symbol),
                     )}
                 </TableCardBody>
             </div>
@@ -500,7 +500,7 @@ function TokenAccountCard({ account, info }: { account: Account; info: TokenAcco
                                         {'\u25ce'}
                                         <span className="font-monospace">
                                             {new BigNumber(
-                                                info.delegatedAmount ? info.delegatedAmount.uiAmountString : '0'
+                                                info.delegatedAmount ? info.delegatedAmount.uiAmountString : '0',
                                             ).toFormat(9)}
                                         </span>
                                     </>
@@ -512,7 +512,7 @@ function TokenAccountCard({ account, info }: { account: Account; info: TokenAcco
                     </>
                 )}
                 {accountExtensions?.map(extension =>
-                    TokenExtensionRows(extension, epoch, info.tokenAmount.decimals, symbol)
+                    TokenExtensionRows(extension, epoch, info.tokenAmount.decimals, symbol),
                 )}
             </TableCardBody>
         </div>
@@ -603,7 +603,7 @@ function TokenExtensionRows(
     tokenExtension: TokenExtension,
     maybeEpoch: bigint | undefined,
     decimals: number,
-    symbol: string | undefined
+    symbol: string | undefined,
 ) {
     const epoch = maybeEpoch || 0n; // fallback to 0 if not provided
     switch (tokenExtension.extension) {
@@ -664,7 +664,7 @@ function TokenExtensionRows(
                                 'en-US',
                                 {
                                     maximumFractionDigits: 20,
-                                }
+                                },
                             )}
                         </td>
                     </tr>
@@ -686,7 +686,7 @@ function TokenExtensionRows(
                                 'en-US',
                                 {
                                     maximumFractionDigits: 20,
-                                }
+                                },
                             )}
                         </td>
                     </tr>

@@ -7,8 +7,8 @@ import { BigNumber } from 'bignumber.js';
 import React, { useState } from 'react';
 import useAsyncEffect from 'use-async-effect';
 
-import { useCluster } from '@/app/providers/cluster';
-import { getTokenInfos } from '@/app/utils/token-info';
+import { useCluster } from '@providers/cluster';
+import { getTokenInfos } from '@utils/token-info';
 
 type TokenBalanceRow = {
     account: PublicKey;
@@ -40,13 +40,12 @@ export function TokenBalancesCard({ signature }: SignatureProps) {
         return null;
     }
 
-    return <TokenBalancesCardInner rows={rows} />
+    return <TokenBalancesCardInner rows={rows} />;
 }
 
 export type TokenBalancesCardInnerProps = {
-    rows: TokenBalanceRow[]
-}
-
+    rows: TokenBalanceRow[];
+};
 
 export function TokenBalancesCardInner({ rows }: TokenBalancesCardInnerProps) {
     const { cluster, url } = useCluster();
@@ -61,7 +60,7 @@ export function TokenBalancesCardInner({ rows }: TokenBalancesCardInnerProps) {
                 setTokenInfosLoading(false);
             }
         });
-    }, [])
+    }, []);
 
     const accountRows = rows.map(({ account, delta, balance, mint }) => {
         const key = account.toBase58() + mint;
@@ -110,7 +109,7 @@ export function TokenBalancesCardInner({ rows }: TokenBalancesCardInnerProps) {
 export function generateTokenBalanceRows(
     preTokenBalances: TokenBalance[],
     postTokenBalances: TokenBalance[],
-    accounts: ParsedMessageAccount[]
+    accounts: ParsedMessageAccount[],
 ): TokenBalanceRow[] {
     const preBalanceMap: { [index: number]: TokenBalance } = {};
     const postBalanceMap: { [index: number]: TokenBalance } = {};

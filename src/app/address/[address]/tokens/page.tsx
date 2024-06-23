@@ -3,7 +3,7 @@ import { TokenHistoryCard } from '@components/account/TokenHistoryCard';
 import getReadableTitleFromAddress, { AddressPageMetadataProps } from '@utils/get-readable-title-from-address';
 import { Metadata } from 'next/types';
 
-import { TransactionsProvider } from '@/app/providers/transactions';
+import { TransactionsProvider } from '@providers/transactions';
 
 type Props = Readonly<{
     params: {

@@ -3,8 +3,8 @@
 import { ParsedAccountRenderer } from '@components/account/ParsedAccountRenderer';
 import React, { Suspense } from 'react';
 
-import { CompressedNFTInfoCard } from '@/app/components/account/CompressedNFTInfoCard';
-import { LoadingCard } from '@/app/components/common/LoadingCard';
+import { CompressedNFTInfoCard } from '@components/account/CompressedNFTInfoCard';
+import { LoadingCard } from '@components/common/LoadingCard';
 
 type Props = Readonly<{
     params: {

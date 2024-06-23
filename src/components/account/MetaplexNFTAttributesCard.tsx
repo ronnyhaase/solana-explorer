@@ -3,8 +3,8 @@ import { LoadingCard } from '@components/common/LoadingCard';
 import { Account, isTokenProgramData } from '@providers/accounts';
 import React from 'react';
 
-import { useCluster } from '@/app/providers/cluster';
-import { useCompressedNft } from '@/app/providers/compressed-nft';
+import { useCluster } from '@providers/cluster';
+import { useCompressedNft } from '@providers/compressed-nft';
 
 interface Attribute {
     trait_type: string;

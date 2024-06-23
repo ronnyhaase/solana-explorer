@@ -2,8 +2,8 @@ import { Account, NFTData } from '@providers/accounts';
 import { isTokenProgramData } from '@providers/accounts';
 import ReactJson from 'react-json-view';
 
-import { useCluster } from '@/app/providers/cluster';
-import { CompressedNft, useCompressedNft, useMetadataJsonLink } from '@/app/providers/compressed-nft';
+import { useCluster } from '@providers/cluster';
+import { CompressedNft, useCompressedNft, useMetadataJsonLink } from '@providers/compressed-nft';
 
 export function MetaplexMetadataCard({ account, onNotFound }: { account?: Account; onNotFound: () => never }) {
     const { url } = useCluster();

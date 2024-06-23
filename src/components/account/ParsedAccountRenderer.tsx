@@ -9,7 +9,7 @@ import { RedirectType } from 'next/dist/client/components/redirect';
 import { redirect } from 'next/navigation';
 import React, { useCallback, useEffect, useMemo } from 'react';
 
-import { useClusterPath } from '@/app/utils/url';
+import { useClusterPath } from '@utils/url';
 
 type ParsedAccountRendererProps = Readonly<{
     account: Account | undefined;

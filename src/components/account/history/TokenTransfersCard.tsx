@@ -18,7 +18,7 @@ import Moment from 'react-moment';
 import { create } from 'superstruct';
 import useSWR from 'swr';
 
-import { getTokenInfo, getTokenInfoSwrKey } from '@/app/utils/token-info';
+import { getTokenInfo, getTokenInfoSwrKey } from '@utils/token-info';
 
 import { getTransactionRows, HistoryCardFooter, HistoryCardHeader } from '../HistoryCardComponents';
 import { extractMintDetails, MintDetails } from './common';
@@ -30,7 +30,7 @@ type IndexedTransfer = {
 };
 
 async function fetchTokenInfo([_, address, cluster, url]: ['get-token-info', string, Cluster, string]) {
-    return await getTokenInfo(new PublicKey(address), cluster, url)
+    return await getTokenInfo(new PublicKey(address), cluster, url);
 }
 
 export function TokenTransfersCard({ address }: { address: string }) {
@@ -166,7 +166,7 @@ export function TokenTransfersCard({ address }: { address: string }) {
                         <td>
                             <span className={`badge bg-${statusClass}-soft`}>{statusText}</span>
                         </td>
-                    </tr>
+                    </tr>,
                 );
             });
         });
@@ -216,7 +216,7 @@ export function TokenTransfersCard({ address }: { address: string }) {
 function getTransfer(
     instruction: ParsedInstruction | PartiallyDecodedInstruction,
     cluster: Cluster,
-    signature: string
+    signature: string,
 ): Transfer | TransferChecked | undefined {
     if ('parsed' in instruction && isTokenProgramData(instruction)) {
         try {

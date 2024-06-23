@@ -15,7 +15,7 @@ import Link from 'next/link';
 import { notFound, useSelectedLayoutSegment } from 'next/navigation';
 import React, { PropsWithChildren } from 'react';
 
-import { getEpochForSlot } from '@/app/utils/epoch-schedule';
+import { getEpochForSlot } from '@utils/epoch-schedule';
 
 type Props = PropsWithChildren<{ params: { slot: string } }>;
 
@@ -181,7 +181,7 @@ export default function BlockLayout({ children, params }: Props) {
         <BlockProvider>
             <BlockLayoutInner params={params}>{children}</BlockLayoutInner>
         </BlockProvider>
-    )
+    );
 }
 
 const TABS: Tab[] = [

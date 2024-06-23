@@ -7,10 +7,10 @@ import React from 'react';
 import { create } from 'superstruct';
 import useSWR from 'swr';
 
-import { useCluster } from '@/app/providers/cluster';
-import { Cluster } from '@/app/utils/cluster';
-import { TOKEN_IDS } from '@/app/utils/programs';
-import { getTokenInfo, getTokenInfoSwrKey } from '@/app/utils/token-info';
+import { useCluster } from '@providers/cluster';
+import { Cluster } from '@utils/cluster';
+import { TOKEN_IDS } from '@utils/programs';
+import { getTokenInfo, getTokenInfoSwrKey } from '@utils/token-info';
 
 import { InstructionCard } from '../InstructionCard';
 import { IX_STRUCTS, IX_TITLES, TokenAmountUi, TokenInstructionType } from './types';
@@ -88,7 +88,7 @@ function TokenInstruction(props: InfoProps) {
     const { cluster, url } = useCluster();
     const { data: tokenDetails } = useSWR(
         mintAddress ? getTokenInfoSwrKey(mintAddress, cluster, url) : null,
-        fetchTokenInfo
+        fetchTokenInfo,
     );
 
     const attributes: JSX.Element[] = [];
@@ -110,7 +110,7 @@ function TokenInstruction(props: InfoProps) {
                 <td className="text-lg-end">
                     <Address pubkey={new PublicKey(mintAddress)} alignRight link fetchTokenLabelInfo />
                 </td>
-            </tr>
+            </tr>,
         );
     }
 
@@ -130,7 +130,7 @@ function TokenInstruction(props: InfoProps) {
                         <td className="text-lg-end">
                             <Address pubkey={publicKey} alignRight link />
                         </td>
-                    </tr>
+                    </tr>,
                 );
             }
             continue;
@@ -171,7 +171,7 @@ function TokenInstruction(props: InfoProps) {
             <tr key={key}>
                 <td>{label}</td>
                 <td className="text-lg-end">{tag}</td>
-            </tr>
+            </tr>,
         );
     }
 

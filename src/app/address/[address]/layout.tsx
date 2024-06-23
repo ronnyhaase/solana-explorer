@@ -47,9 +47,9 @@ import { create } from 'superstruct';
 import useSWRImmutable from 'swr/immutable';
 import { Base58EncodedAddress } from 'web3js-experimental';
 
-import { CompressedNftAccountHeader, CompressedNftCard } from '@/app/components/account/CompressedNftCard';
-import { useCompressedNft } from '@/app/providers/compressed-nft';
-import { FullTokenInfo, getFullTokenInfo } from '@/app/utils/token-info';
+import { CompressedNftAccountHeader, CompressedNftCard } from '@components/account/CompressedNftCard';
+import { useCompressedNft } from '@providers/compressed-nft';
+import { FullTokenInfo, getFullTokenInfo } from '@utils/token-info';
 
 const IDENTICON_WIDTH = 64;
 
@@ -200,7 +200,7 @@ function AddressLayoutInner({ children, params: { address } }: Props) {
         infoStatus === FetchStatus.Fetched && infoParsed && isTokenProgramData(infoParsed) && pubkey
             ? ['get-full-token-info', address, cluster, url]
             : null,
-        fetchFullTokenInfo
+        fetchFullTokenInfo,
     );
 
     // Fetch account on load
@@ -276,10 +276,10 @@ function AccountHeader({
         let unverified = false;
 
         const metadataExtension = mintInfo?.extensions?.find(
-            ({ extension }: { extension: string }) => extension === 'tokenMetadata'
+            ({ extension }: { extension: string }) => extension === 'tokenMetadata',
         );
         const metadataPointerExtension = mintInfo?.extensions?.find(
-            ({ extension }: { extension: string }) => extension === 'metadataPointer'
+            ({ extension }: { extension: string }) => extension === 'metadataPointer',
         );
 
         if (metadataPointerExtension && metadataExtension) {
@@ -560,7 +560,7 @@ function getTabs(pubkey: PublicKey, account: Account): TabComponent[] {
                 slug: 'attributes',
                 title: 'Attributes',
             },
-            { compressed: true, path: 'compression', slug: 'compression', title: 'Compression' }
+            { compressed: true, path: 'compression', slug: 'compression', title: 'Compression' },
         );
     }
 

@@ -4,8 +4,8 @@ import { createRef, Suspense } from 'react';
 import { ChevronDown, ExternalLink } from 'react-feather';
 import useAsyncEffect from 'use-async-effect';
 
-import { useCluster } from '@/app/providers/cluster';
-import { CompressedNft, useCompressedNft, useMetadataJsonLink } from '@/app/providers/compressed-nft';
+import { useCluster } from '@providers/cluster';
+import { CompressedNft, useCompressedNft, useMetadataJsonLink } from '@providers/compressed-nft';
 
 import { Address } from '../common/Address';
 import { InfoTooltip } from '../common/InfoTooltip';
@@ -103,7 +103,7 @@ export function CompressedNFTHeader({ compressedNft }: { compressedNft: Compress
                 dropdown.dispose();
             }
         },
-        [dropdownRef]
+        [dropdownRef],
     );
 
     return (

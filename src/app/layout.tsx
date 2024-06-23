@@ -1,4 +1,4 @@
-import './scss/theme-dark.scss';
+import '@scss/theme-dark.scss';
 
 import { ClusterModal } from '@components/ClusterModal';
 import { ClusterStatusBanner } from '@components/ClusterStatusButton';

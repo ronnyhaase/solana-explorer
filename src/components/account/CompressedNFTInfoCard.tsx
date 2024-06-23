@@ -3,13 +3,8 @@ import { ConcurrentMerkleTreeAccount, MerkleTree } from '@solana/spl-account-com
 import { PublicKey } from '@solana/web3.js';
 import React from 'react';
 
-import { useCluster } from '@/app/providers/cluster';
-import {
-    CompressedNft,
-    CompressedNftProof,
-    useCompressedNft,
-    useCompressedNftProof,
-} from '@/app/providers/compressed-nft';
+import { useCluster } from '@providers/cluster';
+import { CompressedNft, CompressedNftProof, useCompressedNft, useCompressedNftProof } from '@providers/compressed-nft';
 
 import { Address } from '../common/Address';
 import { TableCardBody } from '../common/TableCardBody';
