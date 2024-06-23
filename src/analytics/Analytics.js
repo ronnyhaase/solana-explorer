@@ -1,6 +1,6 @@
 import Script from 'next/script';
 
-export default function Analytics() {
+export function Analytics() {
     const safeAnalyticsId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID?.replace("'", "\\'");
     if (!safeAnalyticsId) {
         return null;

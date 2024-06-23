@@ -1,5 +1,6 @@
 import '@scss/theme-dark.scss';
 
+import { Analytics } from '@analytics/Analytics';
 import { ClusterModal } from '@components/ClusterModal';
 import { ClusterStatusBanner } from '@components/ClusterStatusButton';
 import { MessageBanner } from '@components/MessageBanner';
@@ -28,13 +29,7 @@ const rubikFont = Rubik({
     weight: ['300', '400', '700'],
 });
 
-export default function RootLayout({
-    analytics,
-    children,
-}: {
-    analytics?: React.ReactNode;
-    children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en" className={`${rubikFont.variable}`}>
             <body>
@@ -50,7 +45,7 @@ export default function RootLayout({
                         </div>
                     </ClusterProvider>
                 </ScrollAnchorProvider>
-                {analytics}
+                <Analytics />
             </body>
         </html>
     );
